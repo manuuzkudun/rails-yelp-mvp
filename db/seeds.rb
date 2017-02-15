@@ -8,9 +8,11 @@ Restaurant.destroy_all
   restaurant = Restaurant.new(name: name, address: address, phone: phone, category: category)
   restaurant.save
 
-  review_content = Faker::Lorem.sentence
-  review_rating = (0..5).to_a.sample
-  review = Review.new(content: review_content, rating: review_rating)
-  review.restaurant = restaurant
-  review.save
+  (1..5).to_a.sample.times do
+    review_content = Faker::Lorem.sentence
+    review_rating = (0..5).to_a.sample
+    review = Review.new(content: review_content, rating: review_rating)
+    review.restaurant = restaurant
+    review.save
+  end
 end
