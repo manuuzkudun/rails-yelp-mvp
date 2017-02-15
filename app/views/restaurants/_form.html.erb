@@ -1,0 +1,8 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, placeholder: "Errioguarda" %>
+  <%= f.input :address, placeholder: "Hernani Gipuzkoa" %>
+  <%= f.input :phone_number, placeholder: "949 768 989" %>
+  <%= f.input :category, placeholder: "Italian" %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
