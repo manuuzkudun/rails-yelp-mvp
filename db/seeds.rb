@@ -5,5 +5,12 @@ Restaurant.destroy_all
   address = "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
   phone = Faker::PhoneNumber.phone_number
   category = ["chinese", "italian", "japanese", "french", "belgian"].sample
-  Restaurant.create(name: name, address: address, phone: phone, category: category)
+  restaurant = Restaurant.new(name: name, address: address, phone: phone, category: category)
+  restaurant.save
+
+  review_content = Faker::Lorem.sentence
+  review_rating = (0..5).to_a.sample
+  review = Review.new(content: review_content, rating: review_rating)
+  review.restaurant = restaurant
+  review.save
 end
