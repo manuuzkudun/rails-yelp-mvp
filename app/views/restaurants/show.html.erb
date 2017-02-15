@@ -1,2 +1,16 @@
-<h1>Index#show</h1>
-<p>Find me in app/views/index/show.html.erb</p>
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.category %> restaurant</p>
+<p><%= @restaurant.address %></p>
+<p>Phone: <%= @restaurant.phone_number %></p>
+<h3>Reviews</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <p><%= review.content %></p>
+      <p><strong>Rating: <%= review.rating %></strong></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Restaurant list", restaurants_path %>
