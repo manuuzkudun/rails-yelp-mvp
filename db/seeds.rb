@@ -5,7 +5,7 @@ Restaurant.destroy_all
   address = "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
   phone = Faker::PhoneNumber.phone_number
   category = ["chinese", "italian", "japanese", "french", "belgian"].sample
-  restaurant = Restaurant.new(name: name, address: address, phone: phone, category: category)
+  restaurant = Restaurant.new(name: name, address: address, phone_number: phone, category: category)
   restaurant.save
 
   (1..5).to_a.sample.times do

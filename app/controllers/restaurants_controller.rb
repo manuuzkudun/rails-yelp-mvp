@@ -1,24 +1,24 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
-    res = @restaurants[0].reviews
+    p @restaurants
   end
 
   def show
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def new
   end
 
   def create
+    Restaurant.create(restaurant_params)
   end
 
-  def edit
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 
-  def update
-  end
-
-  def delete
-  end
 end
